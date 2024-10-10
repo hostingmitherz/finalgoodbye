@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <title>Discord | Hosting mit Herz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=https://discord.gg/DZzWGxJh9X">
+    <style>
+      .loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0e0069;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.1s ease-out;
+}
+
+.loading-screen span {
+  margin-top: 10px;
+  color: #0f0c0c;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  max-width: 90%;
+  opacity: 0;
+  transition: 333ms ease opacity;
+  margin-top:20px;
+}
+      
+      .loading-screen span.shown {
+       opacity: 1; 
+      }
+      
+      .loading-screen span a {
+       color: rgb(30, 156, 59);
+      }
+
+      .loading-screen.small {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+}
+.animate2 {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+}
+
+.animate1 {
+  fill: none;
+  stroke: rgb(30, 156, 59);
+  stroke-width: 3;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+    </style>
+    
+    <script>
+       setTimeout(() => {
+      document.querySelector('#loading-message').classList.add('shown');
+    }, 2000);
+    </script>
+  </head>
+  <body>
+  <div id="loading-screen-content" class="loading-screen small">
+      <div id="loading-spinner">
+        <svg viewBox="25 25 50 50" class="animate2">
+          <circle r="20" cy="50" cx="50" class="animate1"></circle>
+        </svg>
+      </div>
+    <span id="loading-message">Problems forwarding? Click <a href="https://discord.gg/DZzWGxJh9X">here</a>.</span>
+    </div>
+  </body>
+</html>
