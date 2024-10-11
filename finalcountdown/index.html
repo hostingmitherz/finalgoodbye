@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to Hosting mit Herz Shutdown</title>
+  <script>
+    // Countdown function
+    function countdown() {
+      const targetDate = new Date("October 12, 2024 00:00:00").getTime();
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      // Calculating days, hours, minutes, and seconds
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      // Display the result in the corresponding element
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      // If countdown is over, display message
+      if (timeLeft < 0) {
+        document.getElementById("countdown").innerHTML = "Hosting mit Herz is now closed.";
+      }
+    }
+
+    // Run the countdown every second
+    setInterval(countdown, 1000);
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-4">Hosting mit Herz will be dead in:</h1>
+    <div id="countdown" class="flex justify-center space-x-4 text-5xl font-semibold">
+      <div>
+        <span id="days">0</span>
+        <p class="text-lg">Days</p>
+      </div>
+      <div>
+        <span id="hours">00</span>
+        <p class="text-lg">Hours</p>
+      </div>
+      <div>
+        <span id="minutes">00</span>
+        <p class="text-lg">Minutes</p>
+      </div>
+      <div>
+        <span id="seconds">00</span>
+        <p class="text-lg">Seconds</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
