@@ -4,7 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown to Hosting mit Herz Shutdown</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    /* Fullscreen YouTube video background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Flip clock styles */
+    .flip-clock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .flip-card {
+      background-color: #333;
+      color: #fff;
+      border-radius: 10px;
+      margin: 0 10px;
+      padding: 20px;
+      width: 100px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      perspective: 1000px;
+      font-size: 50px;
+    }
+
+    .flip-card-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateX(-180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .flip-card-front {
+      background-color: #444;
+    }
+
+    .flip-card-back {
+      background-color: #111;
+      transform: rotateX(180deg);
+    }
+
+    /* For better readability on the text */
+    h1 {
+      z-index: 1;
+      color: white;
+      font-size: 3rem;
+      text-align: center;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen relative overflow-hidden">
+
+  <!-- Fullscreen YouTube video background -->
+  <div class="video-background">
+    <iframe src="https://www.youtube.com/embed/QoxVAQiRcoI?autoplay=1&mute=1&loop=1&playlist=QoxVAQiRcoI&controls=0&showinfo=0&modestbranding=1&rel=0" 
+            frameborder="0" allow="autoplay; fullscreen"></iframe>
+  </div>
+
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-4">Hosting mit Herz will be dead in:</h1>
+
+    <div class="flip-clock">
+      <div class="flip-card" id="days-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span id="days-front">0</span>
+          </div>
+          <div class="flip-card-back">
+            <span id="days-back">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card" id="hours-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span id="hours-front">00</span>
+          </div>
+          <div class="flip-card-back">
+            <span id="hours-back">00</span>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card" id="minutes-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span id="minutes-front">00</span>
+          </div>
+          <div class="flip-card-back">
+            <span id="minutes-back">00</span>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card" id="seconds-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span id="seconds-front">00</span>
+          </div>
+          <div class="flip-card-back">
+            <span id="seconds-back">00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Function to update the flip cards
+    function updateFlipCard(cardId, value) {
+      const card = document.getElementById(cardId);
+      const front = document.getElementById(`${cardId}-front`);
+      const back = document.getElementById(`${cardId}-back`);
+      
+      // If the value changes, we trigger the flip animation
+      if (front.innerText != value) {
+        back.innerText = value;
+        card.classList.add('flipped');
+
+        setTimeout(() => {
+          front.innerText = value;
+          card.classList.remove('flipped');
+        }, 600); // Wait for the flip animation to finish
+      }
+    }
+
     // Countdown function
     function countdown() {
       const targetDate = new Date("October 12, 2024 00:00:00").getTime();
@@ -17,81 +181,21 @@
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      // Display the result in the corresponding element
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
+      // Update flip cards with the new values
+      updateFlipCard('days-card', days);
+      updateFlipCard('hours-card', hours.toString().padStart(2, '0'));
+      updateFlipCard('minutes-card', minutes.toString().padStart(2, '0'));
+      updateFlipCard('seconds-card', seconds.toString().padStart(2, '0'));
 
       // If countdown is over, display message
       if (timeLeft < 0) {
-        document.getElementById("countdown").innerHTML = "Hosting mit Herz is now closed.";
+        document.querySelector("h1").innerText = "Hosting mit Herz is now closed.";
       }
     }
 
     // Run the countdown every second
     setInterval(countdown, 1000);
   </script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Rain animation */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      background: url('https://i.ibb.co/N6rvPRn/rain.gif') repeat;
-      pointer-events: none;
-      opacity: 0.5;
-    }
-
-    /* For cleaner layout and typography */
-    #countdown {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* To keep the rain behind everything */
-    .rainy-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-  </style>
-</head>
-<body class="bg-gray-900 text-white flex items-center justify-center h-screen relative overflow-hidden">
-
-  <!-- Rainy background overlay -->
-  <div class="rainy-background"></div>
-
-  <div id="countdown" class="text-center relative z-10 bg-gray-800 bg-opacity-50 p-8 rounded-lg shadow-xl backdrop-blur-lg">
-    <h1 class="text-4xl font-extrabold mb-6 text-indigo-400">Hosting mit Herz will be dead in:</h1>
-    <div class="flex justify-center space-x-8 text-6xl font-extrabold">
-      <div>
-        <span id="days" class="text-indigo-300">0</span>
-        <p class="text-xl text-indigo-200 mt-2">Days</p>
-      </div>
-      <div>
-        <span id="hours" class="text-indigo-300">00</span>
-        <p class="text-xl text-indigo-200 mt-2">Hours</p>
-      </div>
-      <div>
-        <span id="minutes" class="text-indigo-300">00</span>
-        <p class="text-xl text-indigo-200 mt-2">Minutes</p>
-      </div>
-      <div>
-        <span id="seconds" class="text-indigo-300">00</span>
-        <p class="text-xl text-indigo-200 mt-2">Seconds</p>
-      </div>
-    </div>
-  </div>
 
 </body>
 </html>
