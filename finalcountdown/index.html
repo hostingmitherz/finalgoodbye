@@ -29,6 +29,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 20px;
     }
 
     .odometer {
@@ -36,13 +37,14 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      background-color: #333;
-      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1); /* Translucent dark background */
+      color: #d4af37; /* Gold font color */
       font-size: 4rem;
       margin: 0 10px;
       position: relative;
       overflow: hidden;
       border-radius: 10px;
+      font-family: 'Fira Mono', monospace; /* Custom font */
     }
 
     .odometer .digit {
@@ -50,20 +52,20 @@
       height: 100px;
       line-height: 100px;
       text-align: center;
-      font-family: 'Courier New', Courier, monospace;
       font-size: 4rem;
       width: 1.2em;
       overflow: hidden;
       position: relative;
     }
 
-    /* Add the 0-9 digits in each span */
+    /* Add the 0-9 digits in each span, along with a trick for smooth transition 0-9-0 */
     .digit span {
       position: absolute;
       top: 0;
       width: 100%;
       display: flex;
       flex-direction: column;
+      transition: transform 0.5s ease; /* Adjusted speed for smooth transition */
     }
 
     .digit span div {
@@ -77,12 +79,11 @@
       text-align: center;
       position: relative;
       margin-bottom: 20px;
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); /* Adds shadow for readability */
     }
 
-    /* Smooth transition */
-    .digit span {
-      transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
+    /* Custom font for countdown */
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap');
   </style>
 </head>
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen relative overflow-hidden">
@@ -93,7 +94,7 @@
             frameborder="0" allow="autoplay; fullscreen"></iframe>
   </div>
 
-  <div class="text-center relative z-10 bg-gray-900 rounded-xl p-4 bg-opacity-30">
+  <div class="text-center relative z-10">
     <h1 class="text-3xl font-bold mb-4">Hosting mit Herz will be dead in:</h1>
 
     <div class="odometer-container">
@@ -103,12 +104,14 @@
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
         <div class="digit" id="days-2">
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
       </div>
@@ -118,12 +121,14 @@
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
         <div class="digit" id="hours-2">
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
       </div>
@@ -133,12 +138,14 @@
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
         <div class="digit" id="minutes-2">
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
       </div>
@@ -148,12 +155,14 @@
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
         <div class="digit" id="seconds-2">
           <span>
             <div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
             <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+            <div>0</div> <!-- Repeating zero for smooth scroll -->
           </span>
         </div>
       </div>
@@ -164,7 +173,9 @@
     function updateDigit(digitId, value) {
       const digitElement = document.getElementById(digitId);
       const span = digitElement.querySelector('span');
-      span.style.transform = `translateY(-${value * 100}px)`;
+      // To create a scrolling effect
+      const newValue = (value % 10); // Keep only the last digit
+      span.style.transform = `translateY(-${newValue * 100}px)`;
     }
 
     // Countdown function
