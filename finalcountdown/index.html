@@ -33,27 +33,62 @@
     setInterval(countdown, 1000);
   </script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+  <style>
+    /* Rain animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: url('https://i.ibb.co/N6rvPRn/rain.gif') repeat;
+      pointer-events: none;
+      opacity: 0.5;
+    }
 
-  <div class="text-center">
-    <h1 class="text-3xl font-bold mb-4">Hosting mit Herz will be dead in:</h1>
-    <div id="countdown" class="flex justify-center space-x-4 text-5xl font-semibold">
+    /* For cleaner layout and typography */
+    #countdown {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* To keep the rain behind everything */
+    .rainy-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen relative overflow-hidden">
+
+  <!-- Rainy background overlay -->
+  <div class="rainy-background"></div>
+
+  <div id="countdown" class="text-center relative z-10 bg-gray-800 bg-opacity-50 p-8 rounded-lg shadow-xl backdrop-blur-lg">
+    <h1 class="text-4xl font-extrabold mb-6 text-indigo-400">Hosting mit Herz will be dead in:</h1>
+    <div class="flex justify-center space-x-8 text-6xl font-extrabold">
       <div>
-        <span id="days">0</span>
-        <p class="text-lg">Days</p>
+        <span id="days" class="text-indigo-300">0</span>
+        <p class="text-xl text-indigo-200 mt-2">Days</p>
       </div>
       <div>
-        <span id="hours">00</span>
-        <p class="text-lg">Hours</p>
+        <span id="hours" class="text-indigo-300">00</span>
+        <p class="text-xl text-indigo-200 mt-2">Hours</p>
       </div>
       <div>
-        <span id="minutes">00</span>
-        <p class="text-lg">Minutes</p>
+        <span id="minutes" class="text-indigo-300">00</span>
+        <p class="text-xl text-indigo-200 mt-2">Minutes</p>
       </div>
       <div>
-        <span id="seconds">00</span>
-        <p class="text-lg">Seconds</p>
+        <span id="seconds" class="text-indigo-300">00</span>
+        <p class="text-xl text-indigo-200 mt-2">Seconds</p>
       </div>
     </div>
   </div>
