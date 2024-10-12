@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Hosting mit Herz | Farewell for Now</title>
     <link rel="canonical" href="https://hostingmitherz.de/v1/">
-    <meta property="og:url" content="https://hostingmitherz.de/v1/">
+    <meta property="og:url" content="https://hostingmitherz.de/">
     <meta name="description" content="The best free hosting service for your projects">
     <link rel="icon" type="image/png" sizes="600x600" href="/assets/img/favicon.png?h=f71f737089d51f7ab0498b2d4fffda0f">
     <link rel="icon" type="image/png" sizes="600x600" href="/assets/img/favicon.png?h=f71f737089d51f7ab0498b2d4fffda0f" media="(prefers-color-scheme: dark)">
@@ -20,19 +20,20 @@
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
 
-<body style="color: #f3f4f6; margin: 0 auto; font-family: 'Noto Sans', sans-serif; background: rgb(17, 24, 39); display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <div class="container" style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px; max-width: 600px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); text-align: center;">
+<body style="color: #f3f4f6; margin: 0; font-family: 'Noto Sans', sans-serif; background: rgb(17, 24, 39); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; box-sizing: border-box;">
+    <div class="container" style="background: rgba(255, 255, 255, 0.08); padding: 30px; border-radius: 15px; max-width: 800px; width: 100%; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); text-align: center;">
         <h1 id="title" style="color: #ffffff; font-size: 2.5rem; margin-bottom: 20px;"><strong>Farewell for Now</strong></h1>
-        <p id="message" style="color: #d1d5db; line-height: 1.6; font-size: 1.1rem;">
+        <p id="message" style="color: #d1d5db; line-height: 1.8; font-size: 1.2rem; margin-bottom: 20px;">
             Dear Hosting mit Herz Community,<br><br>
-            With a heavy heart, we have to announce that Hosting mit Herz has been shut down as of <strong>October 12th, 00:00</strong>. The decision was not taken lightly and indeed, it was a tough one, bringing a few tears to our eyes as we watched the servers go offline.<br><br>
-            We want to extend our deepest gratitude to all of you who have been a part of this journey. Your support, patience, and the moments we shared together have meant the world to us.<br><br>
-            Although the servers are down, <strong>all data has been securely saved</strong>. If you wish to retrieve your data, you can <strong>kindly request it before October 31st</strong> (Halloween). Please note that processing requests may take a few days. You can reach out to us on Discord for further instructions: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
-            This isn’t necessarily the end. We are exploring the possibility of a return someday. So, stay tuned and keep an eye on future updates. We may come back stronger and with even more to offer.<br><br>
-            Thank you once again for the unforgettable moments and for being part of Hosting mit Herz. We truly appreciate your understanding and the kindness you've shown throughout this journey.<br><br>
-            With heartfelt appreciation,<br>The Hosting mit Herz Team
+            It is with a very heavy heart that we share the news that <strong>Hosting mit Herz was shut down on October 12th, at exactly 00:00</strong>. Watching the servers go dark was not easy; it was one of the hardest decisions we’ve ever had to make, and yes, there were certainly some tears as we said our goodbyes.<br><br>
+            Over the years, Hosting mit Herz was more than just a hosting service – it was a community, a family. Each one of you brought life, warmth, and laughter to this project, and we are deeply grateful for all the unforgettable moments we shared together. Your support, patience, and understanding during our highs and lows made every challenge worthwhile, and it’s something we will always cherish.<br><br>
+            To those who generously donated to help us stay afloat, your kindness did not go unnoticed. Although the hurdles we faced were significant, your contributions helped keep the heart of this project beating for as long as possible. We are truly humbled by your generosity.<br><br>
+            Even though the servers are no longer online, <strong>we have securely saved all data</strong>. If you wish to retrieve your data, please <strong>kindly request it before October 31st</strong> (Halloween). We will do our best to respond promptly, but please bear with us as processing requests might take a few days. Instructions on how to request your data are available on our Discord: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
+            This goodbye may only be temporary. We are already dreaming of a possible return, stronger and more resilient than ever. So please, stay tuned, keep in touch, and don’t lose hope – we may yet surprise you with a comeback that brings Hosting mit Herz back to life.<br><br>
+            Thank you, from the bottom of our hearts, for being part of this journey. For your patience, your kindness, and your unwavering support. As we step away for now, know that every one of you has left an indelible mark on our hearts. Until we meet again...<br><br>
+            With love and deepest appreciation,<br>The Hosting mit Herz Team
         </p>
-        <button onclick="switchLanguage()" style="margin-top: 20px; padding: 10px 20px; background-color: #4f46e5; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s;">
+        <button onclick="switchLanguage()" style="padding: 12px 25px; background-color: #4f46e5; color: #f3f4f6; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s; margin-top: 20px;">
             Switch to German
         </button>
     </div>
@@ -48,22 +49,24 @@
             if (isEnglish) {
                 title.innerHTML = "Abschied vorerst";
                 message.innerHTML = `Liebe Hosting mit Herz Community,<br><br>
-                    Mit schwerem Herzen müssen wir bekannt geben, dass Hosting mit Herz am <strong>12. Oktober um 00:00 Uhr</strong> heruntergefahren wurde. Die Entscheidung fiel uns nicht leicht und es flossen einige Tränen, als die Server offline gingen.<br><br>
-                    Wir möchten unsere tiefste Dankbarkeit an all jene aussprechen, die Teil dieser Reise waren. Eure Unterstützung, Geduld und die gemeinsamen Momente haben uns sehr viel bedeutet.<br><br>
-                    Auch wenn die Server abgeschaltet sind, wurden <strong>alle Daten sicher gespeichert</strong>. Wenn ihr eure Daten wiederherstellen möchtet, könnt ihr <strong>bis zum 31. Oktober</strong> (Halloween) eine freundliche Anfrage stellen. Bitte beachtet, dass die Bearbeitung der Anfragen einige Tage dauern kann. Weitere Informationen dazu findet ihr auf unserem Discord: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
-                    Dies ist nicht unbedingt das Ende. Wir prüfen die Möglichkeit einer Rückkehr in der Zukunft. Also bleibt dran und haltet euch über zukünftige Updates auf dem Laufenden. Vielleicht kommen wir eines Tages stärker und mit noch mehr zurück.<br><br>
-                    Nochmals vielen Dank für die unvergesslichen Momente und dafür, dass ihr Teil von Hosting mit Herz wart. Wir schätzen euer Verständnis und die Freundlichkeit, die ihr uns in dieser Zeit entgegengebracht habt.<br><br>
-                    Mit herzlichem Dank,<br>Das Hosting mit Herz Team`;
+                    Es ist mit sehr schwerem Herzen, dass wir die Nachricht teilen, dass <strong>Hosting mit Herz am 12. Oktober um genau 00:00 Uhr heruntergefahren wurde</strong>. Zu sehen, wie die Server erloschen, war nicht einfach; es war eine der schwierigsten Entscheidungen, die wir je treffen mussten, und ja, es flossen einige Tränen, als wir uns verabschiedeten.<br><br>
+                    Im Laufe der Jahre war Hosting mit Herz mehr als nur ein Hosting-Service – es war eine Gemeinschaft, eine Familie. Jeder von euch brachte Leben, Wärme und Freude in dieses Projekt, und wir sind zutiefst dankbar für all die unvergesslichen Momente, die wir zusammen geteilt haben. Eure Unterstützung, Geduld und euer Verständnis in unseren Höhen und Tiefen machten jede Herausforderung lohnenswert, und das ist etwas, das wir immer schätzen werden.<br><br>
+                    An diejenigen, die großzügig gespendet haben, um uns zu unterstützen, ist eure Freundlichkeit nicht unbemerkt geblieben. Obwohl die Hürden, denen wir gegenüberstanden, erheblich waren, haben eure Beiträge geholfen, das Herz dieses Projekts so lange wie möglich schlagen zu lassen. Wir sind von eurer Großzügigkeit zutiefst berührt.<br><br>
+                    Auch wenn die Server nicht mehr online sind, <strong>haben wir alle Daten sicher gespeichert</strong>. Wenn ihr eure Daten wiederherstellen möchtet, stellt bitte <strong>bis spätestens zum 31. Oktober</strong> (Halloween) eine freundliche Anfrage. Wir werden unser Bestes tun, um schnell zu antworten, aber bitte habt etwas Geduld, da die Bearbeitung der Anfragen einige Tage dauern kann. Anweisungen dazu findet ihr auf unserem Discord: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
+                    Dieser Abschied könnte nur vorübergehend sein. Wir träumen bereits von einer möglichen Rückkehr, stärker und widerstandsfähiger als je zuvor. Bleibt also dran, haltet den Kontakt und verliert nicht die Hoffnung – vielleicht überraschen wir euch eines Tages mit einem Comeback, das Hosting mit Herz wieder zum Leben erweckt.<br><br>
+                    Vielen Dank, von ganzem Herzen, dass ihr Teil dieser Reise wart. Für eure Geduld, eure Freundlichkeit und eure unerschütterliche Unterstützung. Während wir uns nun vorerst zurückziehen, wisst, dass jeder von euch einen unauslöschlichen Eindruck in unseren Herzen hinterlassen hat. Bis wir uns wiedersehen...<br><br>
+                    Mit Liebe und tiefster Wertschätzung,<br>Das Hosting mit Herz Team`;
                 button.innerHTML = "Switch to English";
             } else {
                 title.innerHTML = "Farewell for Now";
                 message.innerHTML = `Dear Hosting mit Herz Community,<br><br>
-                    With a heavy heart, we have to announce that Hosting mit Herz has been shut down as of <strong>October 12th, 00:00</strong>. The decision was not taken lightly and indeed, it was a tough one, bringing a few tears to our eyes as we watched the servers go offline.<br><br>
-                    We want to extend our deepest gratitude to all of you who have been a part of this journey. Your support, patience, and the moments we shared together have meant the world to us.<br><br>
-                    Although the servers are down, <strong>all data has been securely saved</strong>. If you wish to retrieve your data, you can <strong>kindly request it before October 31st</strong> (Halloween). Please note that processing requests may take a few days. You can reach out to us on Discord for further instructions: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
-                    This isn’t necessarily the end. We are exploring the possibility of a return someday. So, stay tuned and keep an eye on future updates. We may come back stronger and with even more to offer.<br><br>
-                    Thank you once again for the unforgettable moments and for being part of Hosting mit Herz. We truly appreciate your understanding and the kindness you've shown throughout this journey.<br><br>
-                    With heartfelt appreciation,<br>The Hosting mit Herz Team`;
+                    It is with a very heavy heart that we share the news that <strong>Hosting mit Herz was shut down on October 12th, at exactly 00:00</strong>. Watching the servers go dark was not easy; it was one of the hardest decisions we’ve ever had to make, and yes, there were certainly some tears as we said our goodbyes.<br><br>
+                    Over the years, Hosting mit Herz was more than just a hosting service – it was a community, a family. Each one of you brought life, warmth, and laughter to this project, and we are deeply grateful for all the unforgettable moments we shared together. Your support, patience, and understanding during our highs and lows made every challenge worthwhile, and it’s something we will always cherish.<br><br>
+                    To those who generously donated to help us stay afloat, your kindness did not go unnoticed. Although the hurdles we faced were significant, your contributions helped keep the heart of this project beating for as long as possible. We are truly humbled by your generosity.<br><br>
+                    Even though the servers are no longer online, <strong>we have securely saved all data</strong>. If you wish to retrieve your data, please <strong>kindly request it before October 31st</strong> (Halloween). We will do our best to respond promptly, but please bear with us as processing requests might take a few days. Instructions on how to request your data are available on our Discord: <a href="https://hostingmitherz.de/discord" style="color: #818cf8; text-decoration: underline;">https://hostingmitherz.de/discord</a>.<br><br>
+                    This goodbye may only be temporary. We are already dreaming of a possible return, stronger and more resilient than ever. So please, stay tuned, keep in touch, and don’t lose hope – we may yet surprise you with a comeback that brings Hosting mit Herz back to life.<br><br>
+                    Thank you, from the bottom of our hearts, for being part of this journey. For your patience, your kindness, and your unwavering support. As we step away for now, know that every one of you has left an indelible mark on our hearts. Until we meet again...<br><br>
+                    With love and deepest appreciation,<br>The Hosting mit Herz Team`;
                 button.innerHTML = "Switch to German";
             }
 
@@ -71,4 +74,5 @@
         }
     </script>
 </body>
+
 </html>
