@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Logo Animation</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="dvd"></canvas>
+<script>
+    const canvas = document.getElementById('dvd');
+    const ctx = canvas.getContext('2d');
+
+    // Resize canvas to fit screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const logo = {
+        x: 50,
+        y: 50,
+        width: 150,
+        height: 100,
+        dx: 4, // Speed in x direction
+        dy: 3, // Speed in y direction
+        color: 'cyan'
+    };
+
+    const colors = ['cyan', 'magenta', 'yellow', 'lime', 'orange', 'red', 'blue', 'purple'];
+
+    function drawLogo() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = logo.color;
+        ctx.fillRect(logo.x, logo.y, logo.width, logo.height);
+
+        // Draw "DVD" text
+        ctx.fillStyle = 'black';
+        ctx.font = 'bold 40px Arial';
+        ctx.fillText('DVD', logo.x + 30, logo.y + 60);
+    }
+
+    function update() {
+        logo.x += logo.dx;
+        logo.y += logo.dy;
+
+        // Bounce off walls
+        if (logo.x <= 0 || logo.x + logo.width >= canvas.width) {
+            logo.dx *= -1;
+            changeColor();
+        }
+        if (logo.y <= 0 || logo.y + logo.height >= canvas.height) {
+            logo.dy *= -1;
+            changeColor();
+        }
+    }
+
+    function changeColor() {
+        logo.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function animate() {
+        drawLogo();
+        update();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</body>
+</html>
